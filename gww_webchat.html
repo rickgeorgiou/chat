@@ -205,7 +205,7 @@
       padding: clamp(34px, 5vw, 54px);
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: flex-start;
       background: var(--gww-navy);
       color: var(--white);
       border-radius: 34px 34px 34px 8px;
@@ -241,10 +241,9 @@
     }
 
     .brand-mark {
-      position: absolute;
-      top: clamp(30px, 5vw, 48px);
-      left: clamp(30px, 5vw, 48px);
-      right: clamp(30px, 5vw, 48px);
+      position: relative;
+      z-index: 1;
+      width: 100%;
       padding: 22px 24px;
       background: rgba(255, 255, 255, 0.96);
       border-radius: 22px;
@@ -258,14 +257,18 @@
     }
 
     .brand-rule {
+      position: relative;
+      z-index: 1;
       width: 68px;
       height: 5px;
-      margin: 26px 0 22px;
+      margin: 32px 0 22px;
       border-radius: 999px;
       background: var(--gww-coral);
     }
 
     .brand-card h2 {
+      position: relative;
+      z-index: 1;
       margin: 0;
       font-size: clamp(1.5rem, 2.6vw, 2.15rem);
       line-height: 1.15;
@@ -273,6 +276,8 @@
     }
 
     .brand-card p {
+      position: relative;
+      z-index: 1;
       margin: 10px 0 0;
       max-width: 32rem;
       color: rgba(255, 255, 255, 0.82);
@@ -309,7 +314,7 @@
 
     @media (max-width: 820px) {
       .hero { grid-template-columns: 1fr; }
-      .brand-card { max-width: 580px; min-height: 360px; }
+      .brand-card { max-width: 580px; min-height: auto; }
     }
 
     @media (max-width: 560px) {
@@ -317,7 +322,9 @@
       .demo-label { display: none; }
       main { padding-top: 48px; padding-bottom: 64px; }
       .chat-prompt { padding: 18px; }
-      .brand-card { min-height: 340px; border-radius: 28px 28px 28px 8px; }
+      .brand-card { min-height: auto; border-radius: 28px 28px 28px 8px; }
+      .brand-mark { padding: 18px 20px; }
+      .brand-rule { margin-top: 28px; }
       footer { align-items: flex-start; flex-direction: column; }
     }
 
