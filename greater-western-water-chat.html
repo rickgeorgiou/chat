@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#292A68" />
+  <title>Greater Western Water Web Chat</title>
+  <meta name="description" content="Greater Western Water customer web chat powered by Cisco Webex Contact Center." />
+  <link rel="icon" type="image/png" href="data:image/png;base64,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" />
+  <style>
+    :root {
+      --gww-navy: #292A68;
+      --gww-mint: #A2D9D1;
+      --gww-coral: #F1616B;
+      --gww-ink: #20214F;
+      --gww-muted: #5F608E;
+      --gww-soft: #F3FAF9;
+      --white: #FFFFFF;
+      --shadow: 0 24px 60px rgba(41, 42, 104, 0.13);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { min-height: 100%; }
+
+    body {
+      margin: 0;
+      color: var(--gww-ink);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(162, 217, 209, 0.30), transparent 28rem),
+        radial-gradient(circle at 90% 82%, rgba(241, 97, 107, 0.12), transparent 30rem),
+        var(--gww-soft);
+      font-family: "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    .site-shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    header {
+      min-height: 96px;
+      padding: 18px clamp(24px, 6vw, 88px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid rgba(41, 42, 104, 0.10);
+      backdrop-filter: blur(10px);
+    }
+
+    .brand img {
+      display: block;
+      width: min(235px, 62vw);
+      height: auto;
+    }
+
+    .demo-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--gww-navy);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .demo-label::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--gww-coral);
+      box-shadow: 0 0 0 5px rgba(241, 97, 107, 0.14);
+    }
+
+    main {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      padding: clamp(52px, 8vw, 112px) clamp(24px, 6vw, 88px);
+    }
+
+    .water-shape {
+      position: absolute;
+      pointer-events: none;
+      border-radius: 46% 54% 62% 38% / 42% 42% 58% 58%;
+      transform: rotate(12deg);
+      background: var(--gww-mint);
+      opacity: 0.34;
+      filter: blur(0.2px);
+    }
+
+    .water-shape.one {
+      width: 330px;
+      height: 330px;
+      left: -145px;
+      bottom: -120px;
+    }
+
+    .water-shape.two {
+      width: 190px;
+      height: 190px;
+      right: -58px;
+      top: 42px;
+      background: var(--gww-coral);
+      opacity: 0.09;
+      transform: rotate(-18deg);
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      width: min(1160px, 100%);
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(310px, 0.8fr);
+      gap: clamp(44px, 7vw, 92px);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      color: var(--gww-coral);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--gww-coral);
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      color: var(--gww-navy);
+      font-size: clamp(2.75rem, 5.2vw, 5.25rem);
+      line-height: 0.98;
+      letter-spacing: -0.048em;
+    }
+
+    .lead {
+      max-width: 650px;
+      margin: 28px 0 0;
+      color: var(--gww-muted);
+      font-size: clamp(1.05rem, 1.6vw, 1.24rem);
+      line-height: 1.65;
+    }
+
+    .chat-prompt {
+      max-width: 650px;
+      margin-top: 34px;
+      padding: 22px 24px;
+      display: flex;
+      gap: 17px;
+      align-items: flex-start;
+      background: var(--white);
+      border: 1px solid rgba(41, 42, 104, 0.08);
+      border-left: 5px solid var(--gww-coral);
+      border-radius: 0 18px 18px 0;
+      box-shadow: 0 16px 42px rgba(41, 42, 104, 0.08);
+    }
+
+    .chat-prompt strong {
+      color: var(--gww-navy);
+      font-size: 1.03rem;
+    }
+
+    .chat-prompt p {
+      margin: 6px 0 0;
+      color: var(--gww-muted);
+      line-height: 1.55;
+    }
+
+    .status-dot {
+      width: 12px;
+      height: 12px;
+      margin-top: 5px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--gww-coral);
+      box-shadow: 0 0 0 6px rgba(241, 97, 107, 0.14);
+    }
+
+    .brand-card {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      min-height: 390px;
+      padding: clamp(34px, 5vw, 54px);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: var(--gww-navy);
+      color: var(--white);
+      border-radius: 34px 34px 34px 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .brand-card::before,
+    .brand-card::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      border-radius: 48% 52% 45% 55% / 55% 38% 62% 45%;
+    }
+
+    .brand-card::before {
+      width: 290px;
+      height: 290px;
+      top: -120px;
+      right: -80px;
+      background: var(--gww-mint);
+      opacity: 0.96;
+      transform: rotate(25deg);
+    }
+
+    .brand-card::after {
+      width: 180px;
+      height: 180px;
+      top: 18px;
+      right: 20px;
+      background: var(--gww-coral);
+      opacity: 0.88;
+      transform: rotate(-12deg);
+    }
+
+    .brand-mark {
+      position: absolute;
+      top: clamp(30px, 5vw, 48px);
+      left: clamp(30px, 5vw, 48px);
+      right: clamp(30px, 5vw, 48px);
+      padding: 22px 24px;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 22px;
+      box-shadow: 0 14px 34px rgba(20, 21, 65, 0.14);
+    }
+
+    .brand-mark img {
+      display: block;
+      width: min(260px, 100%);
+      height: auto;
+    }
+
+    .brand-rule {
+      width: 68px;
+      height: 5px;
+      margin: 26px 0 22px;
+      border-radius: 999px;
+      background: var(--gww-coral);
+    }
+
+    .brand-card h2 {
+      margin: 0;
+      font-size: clamp(1.5rem, 2.6vw, 2.15rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-card p {
+      margin: 10px 0 0;
+      max-width: 32rem;
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.6;
+    }
+
+    footer {
+      padding: 22px clamp(24px, 6vw, 88px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      color: var(--gww-muted);
+      background: var(--white);
+      border-top: 1px solid rgba(41, 42, 104, 0.08);
+      font-size: 0.88rem;
+    }
+
+    .footer-accent {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gww-navy);
+      font-weight: 650;
+    }
+
+    .footer-accent::before {
+      content: "";
+      width: 22px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--gww-mint), var(--gww-coral));
+    }
+
+    @media (max-width: 820px) {
+      .hero { grid-template-columns: 1fr; }
+      .brand-card { max-width: 580px; min-height: 360px; }
+    }
+
+    @media (max-width: 560px) {
+      header { min-height: 82px; }
+      .demo-label { display: none; }
+      main { padding-top: 48px; padding-bottom: 64px; }
+      .chat-prompt { padding: 18px; }
+      .brand-card { min-height: 340px; border-radius: 28px 28px 28px 8px; }
+      footer { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .status-dot { animation: pulse 2.2s ease-in-out infinite; }
+      @keyframes pulse {
+        0%, 100% { box-shadow: 0 0 0 6px rgba(241, 97, 107, 0.14); }
+        50% { box-shadow: 0 0 0 10px rgba(241, 97, 107, 0.05); }
+      }
+    }
+  </style>
+</head>
+<body>
+  <div
+    id="divicw"
+    data-bind="0EE7A19C-3760-4F8D-B8E0-C97A623275A9"
+    data-org=""
+    data-guid="f51265a2-030e-4919-b3f8-b31f7591651f"
+  ></div>
+  <script>
+    var i = {
+      t: function () {
+        try {
+          var e = document.getElementById("divicw");
+          var t = document.createElement("script");
+          t.src =
+            "https://chat-widget.prodanz1.ciscoccservice.com/js/imichatinit.js?t=" +
+            new Date().toISOString();
+          e.insertAdjacentElement("afterend", t);
+          t.addEventListener("load", function () {
+            console.log(new Date().toISOString(), "Livechat script loaded successfully!");
+          });
+          t.addEventListener("error", function () {
+            console.log(new Date().toISOString(), "Error loading Livechat script");
+            i.o(e);
+          });
+        } catch (e) {
+          console.error(e);
+        }
+      },
+      o: function (e) {
+        e.insertAdjacentHTML(
+          "afterend",
+          '<iframe id="tls_al_frm" frameborder="0" style="overflow:hidden;height:208px;width:394px;position:fixed;display:none;right:48px;bottom:12px;z-index:99999;"></iframe>'
+        );
+        var t = document.getElementById("tls_al_frm");
+        var n = t.contentWindow;
+        var d = n.document;
+        d.open();
+        d.write(
+          "<!doctype html>" +
+            "<html>" +
+            "<head>" +
+            "<meta charset='utf-8'>" +
+            "<title>Unsupported browser</title>" +
+            "<style>" +
+            "body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#5F608E;font-size:14px;}" +
+            ".popover__content{background-color:#fff;padding:1.5rem;border-radius:12px;width:300px;box-shadow:0 8px 30px rgba(41,42,104,0.18);position:relative;border-top:4px solid #F1616B;}" +
+            ".popover__message{font-weight:600;color:#292A68;font-size:16px;}" +
+            ".pull-left{float:left;}" +
+            ".clearfix{clear:both;}" +
+            ".hdr-txt{width:218px;margin-top:3px;}" +
+            ".para-txt a{text-decoration:none;color:#292A68;}" +
+            ".close-btn{position:absolute;right:15px;top:15px;}" +
+            ".close-btn a{text-decoration:none;font-weight:400;color:#292A68;font-size:16px;}" +
+            "</style>" +
+            "</head>" +
+            "<body>" +
+            "<div class='popover__content'>" +
+            "<div class='close-btn'><a href='#' onclick='closeTLSAlert()'>X</a></div>" +
+            "<div class='popover__message'><div class='pull-left hdr-txt'>This browser version is not supported on LiveChat.</div></div>" +
+            "<div class='clearfix'></div>" +
+            "<p class='para-txt'>Please update your browser to the latest version and re-open the website to access the widget.</p>" +
+            "</div>" +
+            "<script>" +
+            "function closeTLSAlert(){window.parent.postMessage({key:'close_tls_alert',value:'close_tls_alert',action:'close_tls_alert'},'*');}" +
+            "<\/script>" +
+            "</body>" +
+            "</html>"
+        );
+        d.close();
+        t.style.display = "block";
+        window.addEventListener("message", function (e) {
+          if (e.data.action === "close_tls_alert") {
+            i.s();
+          }
+        });
+      },
+      s: function () {
+        var e = document.getElementById("tls_al_frm");
+        if (e) {
+          e.remove();
+        }
+      }
+    };
+    i.t();
+  </script>
+
+  <div class="site-shell">
+    <header>
+      <div class="brand" aria-label="Greater Western Water">
+        <img src="data:image/png;base64,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" alt="Greater Western Water" />
+      </div>
+      <span class="demo-label">Web Chat</span>
+    </header>
+
+    <main>
+      <span class="water-shape one" aria-hidden="true"></span>
+      <span class="water-shape two" aria-hidden="true"></span>
+
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <span class="eyebrow">Customer Support</span>
+          <h1 id="page-title">Welcome to Greater Western Water.</h1>
+          <p class="lead">
+            Connect with our team through web chat for quick help and support.
+          </p>
+
+          <div class="chat-prompt">
+            <span class="status-dot" aria-hidden="true"></span>
+            <div>
+              <strong>Ready to chat?</strong>
+              <p>Use the chat widget in the bottom-right corner to get started.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="brand-card" aria-label="Greater Western Water web chat information">
+          <div class="brand-mark">
+            <img src="data:image/png;base64,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" alt="Greater Western Water logo" />
+          </div>
+          <div class="brand-rule"></div>
+          <h2>Here when you need us.</h2>
+          <p>Start a conversation with our team using the chat button on this page.</p>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <span>&copy; 2026 Greater Western Water</span>
+      <span class="footer-accent">Web Chat</span>
+    </footer>
+  </div>
+</body>
+</html>
