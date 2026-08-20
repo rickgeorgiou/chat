@@ -1,46 +1,562 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>FSC Customer Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Greater Western Water - Customer Details</title>
+
   <style>
+    :root {
+      --gww-navy: #17324d;
+      --gww-blue: #1e88a8;
+      --gww-aqua: #5ec5c9;
+      --gww-green: #8dbf45;
+      --gww-light-blue: #eaf6f7;
+      --gww-light-green: #f1f7e8;
+      --gww-bg: #f5f7f8;
+      --gww-border: #dfe5e8;
+      --gww-text: #1d2b36;
+      --gww-muted: #667580;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
     body {
-      font-family: Arial, sans-serif;
-      padding: 24px;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+      background: var(--gww-bg);
+      color: var(--gww-text);
+      padding: 18px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+
+      background: #ffffff;
+      border: 1px solid var(--gww-border);
+      border-radius: 18px;
+
+      box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.03),
+        0 10px 30px rgba(20, 55, 70, 0.08);
+    }
+
+    /*
+      Water / landscape inspired header
+    */
+    .header {
+      position: relative;
+      overflow: hidden;
+
+      min-height: 150px;
+      padding: 28px 26px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gww-navy) 0%,
+          #205b73 48%,
+          var(--gww-blue) 100%
+        );
+
+      color: #ffffff;
+    }
+
+    .wave-one {
+      position: absolute;
+      width: 320px;
+      height: 170px;
+
+      right: -130px;
+      top: -80px;
+
+      border-radius: 50%;
+
+      background: rgba(94, 197, 201, 0.30);
+      transform: rotate(-12deg);
+    }
+
+    .wave-two {
+      position: absolute;
+      width: 360px;
+      height: 120px;
+
+      right: -150px;
+      bottom: -75px;
+
+      border-radius: 50%;
+
+      background: rgba(141, 191, 69, 0.32);
+      transform: rotate(10deg);
+    }
+
+    .brand {
+      position: relative;
+      z-index: 2;
+
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-mark {
+      position: relative;
+
+      width: 58px;
+      height: 58px;
+
+      flex-shrink: 0;
+
+      border-radius: 18px 18px 24px 18px;
+
+      background: rgba(255, 255, 255, 0.96);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+    }
+
+    .brand-mark svg {
+      width: 34px;
+      height: 34px;
+    }
+
+    .brand-name {
+      font-size: 23px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-subtitle {
+      margin-top: 6px;
+
+      font-size: 13px;
+      line-height: 1.4;
+
+      color: rgba(255, 255, 255, 0.83);
+    }
+
+    .content {
+      padding: 26px;
+    }
+
+    .heading {
+      margin-bottom: 22px;
+    }
+
+    .heading-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--gww-navy);
+    }
+
+    .heading-subtitle {
+      margin-top: 5px;
+
+      font-size: 13px;
+      line-height: 1.5;
+
+      color: var(--gww-muted);
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .detail {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      min-height: 80px;
+      padding: 15px 16px;
+
+      border: 1px solid var(--gww-border);
+      border-radius: 14px;
+
+      background: #ffffff;
+    }
+
+    .detail.customer {
+      background:
+        linear-gradient(
+          90deg,
+          var(--gww-light-blue) 0%,
+          #ffffff 75%
+        );
+    }
+
+    .detail.department {
+      background:
+        linear-gradient(
+          90deg,
+          var(--gww-light-green) 0%,
+          #ffffff 75%
+        );
+    }
+
+    .detail-icon {
+      width: 46px;
+      height: 46px;
+
+      flex-shrink: 0;
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .customer .detail-icon {
+      background: var(--gww-blue);
+    }
+
+    .department .detail-icon {
+      background: var(--gww-green);
+    }
+
+    .detail-icon svg {
+      width: 23px;
+      height: 23px;
+      stroke: #ffffff;
+    }
+
+    .detail-content {
+      flex: 1;
+      min-width: 0;
     }
 
     .label {
-      font-size: 13px;
-      color: #666;
-      margin-top: 20px;
+      margin-bottom: 4px;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      color: var(--gww-muted);
     }
 
     .value {
-      font-size: 22px;
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1.2;
+
+      color: var(--gww-navy);
+
+      overflow-wrap: anywhere;
+    }
+
+    .department-pill {
+      display: inline-flex;
+      align-items: center;
+
+      padding: 6px 13px;
+
+      border-radius: 999px;
+
+      background: rgba(141, 191, 69, 0.17);
+      border: 1px solid rgba(141, 191, 69, 0.42);
+
+      color: #41651d;
+
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .footer {
+      position: relative;
+
+      padding: 17px 26px;
+
+      border-top: 1px solid var(--gww-border);
+
+      background: #fafcfc;
+    }
+
+    .footer-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      font-size: 12px;
       font-weight: 600;
-      margin-top: 4px;
+
+      color: var(--gww-muted);
+    }
+
+    .footer-dot {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background: var(--gww-aqua);
+    }
+
+    @media (max-width: 520px) {
+
+      body {
+        padding: 10px;
+      }
+
+      .header {
+        min-height: 135px;
+        padding: 22px 20px;
+      }
+
+      .brand-mark {
+        width: 52px;
+        height: 52px;
+      }
+
+      .brand-name {
+        font-size: 20px;
+      }
+
+      .content {
+        padding: 20px;
+      }
+
+      .value {
+        font-size: 19px;
+      }
+
+      .footer {
+        padding: 15px 20px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<h2>FSC Support</h2>
+  <div class="container">
 
-<div class="label">Customer</div>
-<div class="value" id="customer"></div>
+    <div class="card">
 
-<div class="label">Department</div>
-<div class="value" id="department"></div>
+      <div class="header">
 
-<script>
-const params = new URLSearchParams(window.location.search);
+        <div class="wave-one"></div>
+        <div class="wave-two"></div>
 
-document.getElementById("customer").textContent =
-    params.get("customerName") || "Unknown";
+        <div class="brand">
 
-document.getElementById("department").textContent =
-    params.get("department") || "Unknown";
-</script>
+          <div class="brand-mark">
+
+            <!-- Water-inspired mark -->
+            <svg
+              viewBox="0 0 48 48"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 5C24 5 11 19 11 29C11 36.2 16.8 42 24 42C31.2 42 37 36.2 37 29C37 19 24 5 24 5Z"
+                fill="#5EC5C9"
+              />
+
+              <path
+                d="M16 30C20 27 24 27 28 30C31 32 34 32 37 30"
+                stroke="#17324D"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M17 35C21 32 25 32 29 35C31 36.5 33 36.5 35 35"
+                stroke="#8DBF45"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+            </svg>
+
+          </div>
+
+          <div>
+
+            <div class="brand-name">
+              Greater Western Water
+            </div>
+
+            <div class="brand-subtitle">
+              Customer Support
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="content">
+
+        <div class="heading">
+
+          <div class="heading-title">
+            Customer details
+          </div>
+
+          <div class="heading-subtitle">
+            Information provided before the customer was connected.
+          </div>
+
+        </div>
+
+        <div class="details">
+
+          <div class="detail customer">
+
+            <div class="detail-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="12"
+                  cy="8"
+                  r="4"
+                  stroke-width="2"
+                />
+
+                <path
+                  d="M4 21C4.8 16.5 7.5 14 12 14C16.5 14 19.2 16.5 20 21"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+            </div>
+
+            <div class="detail-content">
+
+              <div class="label">
+                Customer
+              </div>
+
+              <div
+                class="value"
+                id="customer"
+              >
+                Unknown
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="detail department">
+
+            <div class="detail-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 7H20"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+
+                <path
+                  d="M4 12H16"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+
+                <path
+                  d="M4 17H13"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+            </div>
+
+            <div class="detail-content">
+
+              <div class="label">
+                Department
+              </div>
+
+              <div
+                class="department-pill"
+                id="department"
+              >
+                Unknown
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="footer">
+
+        <div class="footer-line">
+
+          <span class="footer-dot"></span>
+
+          Greater Western Water · Agent Desktop
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    const params =
+      new URLSearchParams(window.location.search);
+
+    const customerName =
+      (params.get("customerName") || "Unknown").trim();
+
+    const department =
+      (params.get("department") || "Unknown").trim();
+
+    document.getElementById("customer").textContent =
+      customerName;
+
+    document.getElementById("department").textContent =
+      department;
+  </script>
 
 </body>
 </html>
